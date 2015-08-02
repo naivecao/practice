@@ -1,0 +1,12 @@
+(dp1
+S'age'
+p2
+I20
+sS'male'
+p3
+I01
+sS'name'
+p4
+S'xiaoming'
+p5
+s.
