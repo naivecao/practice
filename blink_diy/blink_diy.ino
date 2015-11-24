@@ -8,6 +8,8 @@
 
 int m = 0;
 int s = 1;
+int p = 0;
+int pr = 0;
 void setup()
 {
         pinMode(3, OUTPUT);
@@ -20,61 +22,52 @@ void setup()
 
 void loop()
 {
-    for(int n = 0; n <= 255; n +=  5 * (m + 1 ))
+    pr = analogRead(0);
+    if (pr <= 550)
     {
-        switch(m)
+        for(int n = 0; n <= 255; n +=  5 * (m + 1 ))
         {
-            case 0:
-            analogWrite(3, n);
-            break;
-            case 1:
-            analogWrite(5, n);
-            break;
-            case 2:
-            analogWrite(6, n);
-            break;
-            case 3:
-            analogWrite(9, n);
-            break;
-            case 4:
-            analogWrite(10, n);
-            break;
-            case 5:
-            analogWrite(11, n);
-            break;
+            switch(m)
+            {
+                case 0:
+                p = 3;
+                break;
+                case 1:
+                p = 5;
+                break;
+                case 2:
+                p = 6;
+                break;
+                case 3:
+                p = 9;
+                break;
+                case 4:
+                p = 10;
+                break;
+                case 5:
+                p = 11;
+                break;
+            }
+            analogWrite(p, n);
+            delay(30);
         }
-        delay(30);
-    }
-    
-    for(int n = 255; n >= 0; n -= 5)
-    {
-        switch(m)
+        
+        for(int n = 255; n >= 0; n -= 5)
         {
-            case 0:
-            analogWrite(3, n);
-            break;
-            case 1:
-            analogWrite(5, n);
-            break;
-            case 2:
-            analogWrite(6, n);
-            break;
-            case 3:
-            analogWrite(9, n);
-            break;
-            case 4:
-            analogWrite(10, n);
-            break;
-            case 5:
-            analogWrite(11, n);
-            break;
+            analogWrite(p, n);
+            delay(30);
         }
-        delay(30);
-    }
-    
-    m = m + s;
-    if(m == 5 || m == 0)
-    {
-        s = -s;
+
+        m = m + s;
+        if(m == 5 || m == 0)
+        {
+            s = -s;
+        }
+    } else {
+        int randVal = random(0, 1000);
+        digitalWrite(3, HIGH);
+        delay(randVal);
+        digitalWrite(3, LOW);
+        delay(randVal);
     }
 }
