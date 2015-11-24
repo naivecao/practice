@@ -13,20 +13,21 @@ void setup()
     pinMode(LED, OUTPUT);
     pinMode(AT, OUTPUT);
     digitalWrite(AT, HIGH);
+    delay(200);
     
     Serial.begin(38400);// 这里应该和你的模块通信波特率一致
     delay(200);
-    Serial.println("AT");
+    Serial.println("AT\r\n");
     delay(200);
-    Serial.println("AT+NAME=LCMJ-BT-01");// 命名模块名
+    Serial.println("AT+NAME=LCMJ-BT-01\r\n");// 命名模块名
     delay(200);
-    Serial.println("AT+ROLE=0");// 设置主从模式：0从机，1主机
+    Serial.println("AT+ROLE=0\r\n");// 设置主从模式：0从机，1主机
     delay(200);
-    Serial.println("AT+PSWD=8023");// 设置配对密码，如1234
+    Serial.println("AT+PSWD=8023\r\n");// 设置配对密码，如1234
     delay(200);
-    Serial.println("AT+UART=9600,0,0");// 设置波特率9600，停止位1，校验位无
+    Serial.println("AT+UART=9600,0,0\r\n");// 设置波特率9600，停止位1，校验位无
     delay(200);
-    Serial.println("AT+RMAAD");// 清空配对列表
+    Serial.println("AT+RMAAD\r\n");// 清空配对列表
 }
 
 void loop()
