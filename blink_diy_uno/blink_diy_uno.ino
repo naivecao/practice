@@ -1,7 +1,7 @@
 /*
     blink_diy_uno.ino - a diy blink case of Practice(Program)
     Created by naivecao. Novemeber 20, 2015
-    Lasted modified by naivecao. Novemeber 20, 2015
+    Lasted modified by naivecao. Novemeber 25, 2015
     Co,.Ltd:Lcmj
  */
 
